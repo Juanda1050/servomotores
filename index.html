@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servomotion Solution | Especialistas en Servomotores</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap");
+    body { font-family: "Montserrat", sans-serif; scroll-behavior: smooth; }
+    .bg-primary { background-color: #ec2626; }
+    .text-primary { color: #ec2626; }
+    .border-primary { border-color: #ec2626; }
+    .hover-primary:hover { background-color: #d11f1f; }
+
+    .carousel-slide { transition: opacity .6s ease, transform .6s ease; }
+    .carousel-hidden { opacity: 0; pointer-events: none; transform: scale(.99); }
+    .carousel-visible { opacity: 1; pointer-events: auto; transform: scale(1); }
+
+    .hero-overlay { background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 60%); }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- Header / Nav -->
+  <nav class="bg-white shadow-xl sticky top-0 z-50 border-b-4 border-primary">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-20 md:h-24">
+        <div class="flex items-center">
+          <img src="https://www.automate.org/images/ogImages/logo3.jpg" alt="Servomotion Logo" class="h-12 md:h-16 object-contain">
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-8 font-bold text-sm uppercase tracking-widest">
+          <a href="#servicios" class="hover:text-primary transition">Servicios</a>
+          <span class="cursor-default text-gray-700">Electrónica Industrial</span>
+          <span class="cursor-default text-gray-700">Galerías</span>
+          <a href="#nosotros" class="hover:text-primary transition">Nosotros</a>
+          <a href="#contacto" class="bg-primary text-white px-6 py-3 rounded hover-primary transition shadow-md">Cotizar Ahora</a>
+        </div>
+
+        <button class="lg:hidden text-primary text-3xl p-2" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO: Carousel -->
+  <section class="relative overflow-hidden">
+    <div id="carousel" class="relative w-full h-[68vh] md:h-[78vh] lg:h-[78vh]">
+      <div class="absolute inset-0">
+        <div class="carousel-slide carousel-visible absolute inset-0" data-index="0">
+          <img src="https://www.servomotion-solution.com/images/slide_1.jpg?1771255254394" alt="Slide 1" class="w-full h-full object-cover">
+        </div>
+        <div class="carousel-slide carousel-hidden absolute inset-0" data-index="1">
+          <img src="https://www.servomotion-solution.com/images/slide_2.jpg?1771255254852" alt="Slide 2" class="w-full h-full object-cover">
+        </div>
+        <div class="carousel-slide carousel-hidden absolute inset-0" data-index="2">
+          <img src="https://www.servomotion-solution.com/images/slide_3.jpg?1771255258780" alt="Slide 3" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <div class="absolute inset-0 hero-overlay z-10"></div>
+
+      <div class="absolute inset-0 flex items-center justify-end z-20 pr-8 md:pr-20">
+        <!-- mr-32 aplicado para pantallas grandes como solicitaste -->
+        <div class="max-w-2xl text-white text-right lg:mr-32">
+          <div class="bg-primary text-white px-5 py-2 rounded-md font-bold uppercase tracking-widest shadow-xl mb-4 inline-block">
+            Servicio de Alta Calidad
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight uppercase drop-shadow-lg">
+            Especialistas en Reparación de <br><span class="text-primary">Servomotores</span>
+          </h1>
+          <p class="text-gray-200 text-lg md:text-xl mb-8 ml-auto max-w-lg font-medium">EXPERTOS EN SERVOMOTORES. SERVICIO 24/7 CON GARANTÍA DE 1 AÑO EN REPARACIÓN.</p>
+        </div>
+      </div>
+
+      <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-40 bg-black/40 text-white p-3 rounded-full hover:bg-black/60">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-40 bg-black/40 text-white p-3 rounded-full hover:bg-black/60">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <div id="indicators" class="absolute left-1/2 transform -translate-x-1/2 bottom-6 z-40 flex gap-3">
+        <button class="w-3 h-3 rounded-full bg-white" data-to="0"></button>
+        <button class="w-3 h-3 rounded-full bg-white/40" data-to="1"></button>
+        <button class="w-3 h-3 rounded-full bg-white/40" data-to="2"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 -mt-20 relative z-20">
+        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300">
+          <div class="text-primary text-4xl mb-4"><i class="fas fa-tools"></i></div>
+          <h3 class="font-black text-lg mb-2 uppercase">Reparación Spindle Motor</h3>
+          <p class="text-gray-600 text-sm">Reparación de motores de husillo con los mismos estándares de precisión que un servomotor.</p>
+        </div>
+        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300">
+          <div class="text-primary text-4xl mb-4"><i class="fas fa-microchip"></i></div>
+          <h3 class="font-black text-lg mb-2 uppercase">Reparación de Servomotores</h3>
+          <p class="text-gray-600 text-sm">Contamos con instrumentos y software para cualquier tipo de retroalimentación encoder.</p>
+        </div>
+        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300">
+          <div class="text-primary text-4xl mb-4"><i class="fas fa-plug"></i></div>
+          <h3 class="font-black text-lg mb-2 uppercase">Cables y Conectores</h3>
+          <p class="text-gray-600 text-sm">Fabricación a medida y suministro de cables especiales para servomotores de todas las marcas.</p>
+        </div>
+        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300">
+          <div class="text-primary text-4xl mb-4"><i class="fas fa-lightbulb"></i></div>
+          <h3 class="font-black text-lg mb-2 uppercase">Tips de Mantenimiento</h3>
+          <p class="text-gray-600 text-sm">Consejos para prevenir tiempo de inactividad y detectar primeros signos de advertencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Nosotros -->
+  <section id="nosotros" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="lg:w-1/2">
+          <div class="relative">
+            <div class="rounded-lg overflow-hidden shadow-2xl border-l-8 border-primary">
+              <img src="https://www.servomotion-solution.com/images/slide_3.jpg?1771255258780" class="w-full h-auto object-cover" alt="Servomotor Industrial">
+            </div>
+            <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-lg hidden md:block shadow-xl text-center">
+              <p class="text-3xl font-black uppercase">26+ Años</p>
+              <p class="text-xs uppercase tracking-widest font-bold">De Experiencia Real</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6 uppercase leading-tight">
+            Servomotion Solution <br><span class="text-primary text-2xl">S.A. de C.V.</span>
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Somos una compañía 100% mexicana fundada en Monterrey en el año 2000. Contamos con proveedores internacionales para garantizar piezas originales de las mejores marcas.
+          </p>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Nuestros Ingenieros se capacitan constantemente dentro y fuera del país para ofrecer una reparación rápida y confiable en equipos en estado crítico.
+          </p>
+          <div class="bg-gray-50 p-6 border-l-4 border-primary italic text-gray-600 shadow-sm">
+            "No ponga en riesgo la seguridad de su empresa. Ofrecemos un Servicio de Alta Calidad con Garantía de 1 Año."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Franja de Certificaciones (Restaurada) -->
+  <div class="bg-gray-50 py-12 border-y border-gray-200">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-12 opacity-90">
+        <div class="text-center md:text-left">
+          <p class="text-xs font-bold uppercase tracking-widest text-gray-400">Miembros Activos de:</p>
+        </div>
+        <img src="https://www.servomotion-solution.com/images/A3AssociationForAdvancingAutomation.jpeg" alt="A3 Association" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+        <img src="https://www.servomotion-solution.com/images/A3MotionControl&Motors.jpeg" alt="A3 Motion Control" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+      </div>
+    </div>
+  </div>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
+        <div class="md:w-1/3 bg-primary p-12 text-white">
+          <h3 class="text-2xl font-black mb-8 uppercase tracking-widest">Contacto</h3>
+          <div class="space-y-8">
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-phone mt-1"></i>
+              <div><p class="font-bold">Teléfono</p><p class="text-red-100">(55) 5824 7742</p></div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-envelope mt-1"></i>
+              <div><p class="font-bold">Email</p><p class="text-red-100">info@servomotion-solution.com</p></div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-map-marker-alt mt-1"></i>
+              <div><p class="font-bold">Ubicación</p><p class="text-red-100">Monterrey / CDMX</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-2/3 p-12">
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <input type="text" placeholder="Nombre" class="w-full border-b-2 border-gray-200 py-3 outline-none focus:border-primary transition bg-transparent">
+            <input type="text" placeholder="Empresa" class="w-full border-b-2 border-gray-200 py-3 outline-none focus:border-primary transition bg-transparent">
+            <div class="md:col-span-2">
+              <input type="email" placeholder="Correo Electrónico" class="w-full border-b-2 border-gray-200 py-3 outline-none focus:border-primary transition bg-transparent">
+            </div>
+            <div class="md:col-span-2">
+              <textarea placeholder="¿En qué podemos ayudarle?" rows="3" class="w-full border-b-2 border-gray-200 py-3 outline-none focus:border-primary transition bg-transparent"></textarea>
+            </div>
+            <div class="md:col-span-2">
+              <button class="bg-primary text-white font-black py-4 px-10 rounded uppercase tracking-widest hover-primary transition shadow-xl w-full md:w-auto">Enviar Mensaje</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16 border-t-8 border-primary">
+    <div class="container mx-auto px-4 text-center">
+      <img src="https://www.automate.org/images/ogImages/logo3.jpg" alt="Logo Servomotion" class="h-16 mx-auto mb-8 object-contain">
+      <div class="flex justify-center space-x-8 mb-8 text-gray-400">
+        <a href="#" class="hover:text-primary transition text-2xl" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-primary transition text-2xl" aria-label="X"><i class="fab fa-x"></i></a>
+        <a href="#" class="hover:text-primary transition text-2xl" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="text-gray-500 text-sm tracking-widest uppercase">&copy; 2026 Servomotion Solution S.A. de C.V.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+      const indicators = Array.from(document.querySelectorAll('#indicators button'));
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let index = 0;
+      let interval = null;
+
+      function showSlide(i) {
+        slides.forEach(s => { s.classList.add('carousel-hidden'); s.classList.remove('carousel-visible'); });
+        indicators.forEach(ind => { ind.classList.remove('bg-white'); ind.classList.add('bg-white/40'); });
+        slides[i].classList.remove('carousel-hidden');
+        slides[i].classList.add('carousel-visible');
+        indicators[i].classList.remove('bg-white/40');
+        indicators[i].classList.add('bg-white');
+      }
+
+      function next() { index = (index + 1) % slides.length; showSlide(index); }
+      function prev() { index = (index - 1 + slides.length) % slides.length; showSlide(index); }
+
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+      indicators.forEach((btn, i) => btn.addEventListener('click', () => { index = i; showSlide(index); }));
+
+      interval = setInterval(next, 5000);
+      showSlide(index);
+    })();
+  </script>
+</body>
+</html>
