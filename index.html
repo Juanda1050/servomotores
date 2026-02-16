@@ -4,10 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Servomotion Solution | Especialistas en Servomotores</title>
+
+  <!-- Tailwind + Font Awesome + Google Font -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap");
     body { font-family: "Montserrat", sans-serif; scroll-behavior: smooth; }
     .bg-primary { background-color: #ec2626; }
     .text-primary { color: #ec2626; }
@@ -19,6 +22,9 @@
     .carousel-visible { opacity: 1; pointer-events: auto; transform: scale(1); }
 
     .hero-overlay { background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 60%); }
+
+    /* Forzar familia de FA Brands (si hay problemas con el glifo) */
+    .fa-brands, .fa-brands * { font-family: "Font Awesome 6 Brands" !important; }
   </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -31,6 +37,7 @@
           <img src="https://www.automate.org/images/ogImages/logo3.jpg" alt="Servomotion Logo" class="h-12 md:h-16 object-contain">
         </div>
 
+        <!-- Desktop nav -->
         <div class="hidden lg:flex items-center space-x-8 font-bold text-sm uppercase tracking-widest">
           <a href="#servicios" class="hover:text-primary transition">Servicios</a>
           <span class="cursor-default text-gray-700">Electrónica Industrial</span>
@@ -39,12 +46,28 @@
           <a href="#contacto" class="bg-primary text-white px-6 py-3 rounded hover-primary transition shadow-md">Cotizar Ahora</a>
         </div>
 
-        <button class="lg:hidden text-primary text-3xl p-2" aria-label="Abrir menú">
+        <!-- Mobile toggle -->
+        <button id="menuToggle" class="lg:hidden text-primary text-3xl p-2" aria-label="Abrir menú" aria-expanded="false">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
-  </nav>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobileMenu" class="lg:hidden hidden bg-white border-t border-gray-100 shadow-md">
+      <div class="container mx-auto px-4 py-6">
+        <nav class="flex flex-col gap-4 font-bold uppercase">
+          <a href="#servicios" class="text-gray-800 hover:text-primary py-2 transition" data-close>Servicios</a>
+          <a href="#nosotros" class="text-gray-800 hover:text-primary py-2 transition" data-close>Nosotros</a>
+          <a href="#electronica" class="text-gray-800 hover:text-primary py-2 transition" data-close>Electrónica Industrial</a>
+          <a href="#galerias" class="text-gray-800 hover:text-primary py-2 transition" data-close>Galerías</a>
+          <!-- Botón Cotizar en Rojo -->
+          <a href="#contacto" class="bg-primary text-white text-center py-4 rounded shadow-md hover-primary transition mt-2" data-close>
+            Cotizar Ahora
+          </a>
+        </nav>
+      </div>
+    </div>
 
   <!-- HERO: Carousel -->
   <section class="relative overflow-hidden">
@@ -64,7 +87,6 @@
       <div class="absolute inset-0 hero-overlay z-10"></div>
 
       <div class="absolute inset-0 flex items-center justify-end z-20 pr-8 md:pr-20">
-        <!-- mr-32 aplicado para pantallas grandes como solicitaste -->
         <div class="max-w-2xl text-white text-right lg:mr-32">
           <div class="bg-primary text-white px-5 py-2 rounded-md font-bold uppercase tracking-widest shadow-xl mb-4 inline-block">
             Servicio de Alta Calidad
@@ -84,37 +106,54 @@
       </button>
 
       <div id="indicators" class="absolute left-1/2 transform -translate-x-1/2 bottom-6 z-40 flex gap-3">
-        <button class="w-3 h-3 rounded-full bg-white" data-to="0"></button>
-        <button class="w-3 h-3 rounded-full bg-white/40" data-to="1"></button>
-        <button class="w-3 h-3 rounded-full bg-white/40" data-to="2"></button>
+        <button class="w-3 h-3 rounded-full bg-white" data-to="0" aria-label="slide 1"></button>
+        <button class="w-3 h-3 rounded-full bg-white/40" data-to="1" aria-label="slide 2"></button>
+        <button class="w-3 h-3 rounded-full bg-white/40" data-to="2" aria-label="slide 3"></button>
       </div>
     </div>
   </section>
 
-  <!-- Servicios -->
+  <!-- Servicios (Contenido Original Solicitado) -->
   <section id="servicios" class="py-16 bg-gray-100">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 -mt-20 relative z-20">
-        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300">
+
+        <!-- Card 1 -->
+        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300 flex flex-col">
           <div class="text-primary text-4xl mb-4"><i class="fas fa-tools"></i></div>
-          <h3 class="font-black text-lg mb-2 uppercase">Reparación Spindle Motor</h3>
-          <p class="text-gray-600 text-sm">Reparación de motores de husillo con los mismos estándares de precisión que un servomotor.</p>
+          <h3 class="font-black text-xl mb-1 uppercase leading-tight">REPARACION<br>SPINDLE MOTOR</h3>
+          <p class="text-gray-500 text-xs font-bold mb-3 uppercase">reparacion de motores de husillo(spindle)</p>
+          <p class="text-gray-600 text-sm mb-6 flex-grow">Todos los pasos que se siguen en la reparación de un servomotor, son los mismos para un motor de husillo.</p>
+          <a href="#contacto" class="text-primary font-bold text-xs uppercase tracking-widest hover:underline">Leer más</a>
         </div>
-        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300">
+
+        <!-- Card 2 -->
+        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300 flex flex-col">
           <div class="text-primary text-4xl mb-4"><i class="fas fa-microchip"></i></div>
-          <h3 class="font-black text-lg mb-2 uppercase">Reparación de Servomotores</h3>
-          <p class="text-gray-600 text-sm">Contamos con instrumentos y software para cualquier tipo de retroalimentación encoder.</p>
+          <h3 class="font-black text-xl mb-1 uppercase leading-tight">REPARACION<br>DE SERVOMOTORES</h3>
+          <p class="text-gray-500 text-xs font-bold mb-3 uppercase">reparacion de cualquier tipo de marca</p>
+          <p class="text-gray-600 text-sm mb-6 flex-grow">Contamos con instrumentos y software para cualquier tipo de retroalimentación encoder (incremental, absoluto)</p>
+          <a href="#contacto" class="text-primary font-bold text-xs uppercase tracking-widest hover:underline">Leer más</a>
         </div>
-        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300">
-          <div class="text-primary text-4xl mb-4"><i class="fas fa-plug"></i></div>
-          <h3 class="font-black text-lg mb-2 uppercase">Cables y Conectores</h3>
-          <p class="text-gray-600 text-sm">Fabricación a medida y suministro de cables especiales para servomotores de todas las marcas.</p>
+
+        <!-- Card 3 -->
+        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300 flex flex-col">
+          <div class="text-primary text-4xl mb-4"><i class="fas fa-cogs"></i></div>
+          <h3 class="font-black text-xl mb-1 uppercase leading-tight">PROCESO<br>DE REPARACION</h3>
+          <p class="text-gray-500 text-xs font-bold mb-3 uppercase">pasos en la reparacion de un servomotor</p>
+          <p class="text-gray-600 text-sm mb-6 flex-grow">Evaluación / Reparación / Pruebas finales / Pruebas en vacío y con carga verificando datos de parámetro</p>
+          <a href="#contacto" class="text-primary font-bold text-xs uppercase tracking-widest hover:underline">Leer más</a>
         </div>
-        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300">
+
+        <!-- Card 4 -->
+        <div class="bg-white p-8 shadow-xl border-b-4 border-primary hover:-translate-y-2 transition duration-300 flex flex-col">
           <div class="text-primary text-4xl mb-4"><i class="fas fa-lightbulb"></i></div>
-          <h3 class="font-black text-lg mb-2 uppercase">Tips de Mantenimiento</h3>
-          <p class="text-gray-600 text-sm">Consejos para prevenir tiempo de inactividad y detectar primeros signos de advertencia.</p>
+          <h3 class="font-black text-xl mb-1 uppercase leading-tight">TIPS DE<br>MANTENIMIENTO</h3>
+          <p class="text-gray-500 text-xs font-bold mb-3 uppercase">Especialistas en servomotores</p>
+          <p class="text-gray-600 text-sm mb-6 flex-grow">Consejos para prevenir tiempo de inactividad de un servomotor. Primeros signos de advertencias...</p>
+          <a href="#contacto" class="text-primary font-bold text-xs uppercase tracking-widest hover:underline">Leer más</a>
         </div>
+
       </div>
     </div>
   </section>
@@ -153,7 +192,7 @@
     </div>
   </section>
 
-  <!-- Franja de Certificaciones (Restaurada) -->
+  <!-- Franja de Certificaciones -->
   <div class="bg-gray-50 py-12 border-y border-gray-200">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center justify-center gap-12 opacity-90">
@@ -211,15 +250,59 @@
     <div class="container mx-auto px-4 text-center">
       <img src="https://www.automate.org/images/ogImages/logo3.jpg" alt="Logo Servomotion" class="h-16 mx-auto mb-8 object-contain">
       <div class="flex justify-center space-x-8 mb-8 text-gray-400">
-        <a href="#" class="hover:text-primary transition text-2xl" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="hover:text-primary transition text-2xl" aria-label="X"><i class="fab fa-x"></i></a>
-        <a href="#" class="hover:text-primary transition text-2xl" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="hover:text-primary transition text-2xl" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-primary transition text-2xl" aria-label="X"><i class="fa-brands fa-x"></i></a>
+        <a href="#" class="hover:text-primary transition text-2xl" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
       <p class="text-gray-500 text-sm tracking-widest uppercase">&copy; 2026 Servomotion Solution S.A. de C.V.</p>
     </div>
   </footer>
 
+  <!-- Scripts: carousel minimal + menu toggle -->
   <script>
+    // MENU TOGGLE (mobile)
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      function setAria(open) {
+        menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menuToggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
+      }
+
+      menuToggle.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('block');
+          setAria(true);
+        } else {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('block');
+          setAria(false);
+        }
+      });
+
+      // Close when clicking a mobile link
+      document.querySelectorAll('#mobileMenu [data-close]').forEach(a => {
+        a.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('block');
+          setAria(false);
+        });
+      });
+
+      // Close on resize to large screens
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('block');
+          setAria(false);
+        }
+      });
+    })();
+
+    // CAROUSEL (simple)
     (function(){
       const slides = Array.from(document.querySelectorAll('.carousel-slide'));
       const indicators = Array.from(document.querySelectorAll('#indicators button'));
@@ -227,6 +310,7 @@
       const nextBtn = document.getElementById('nextBtn');
       let index = 0;
       let interval = null;
+      const AUTO_MS = 5000;
 
       function showSlide(i) {
         slides.forEach(s => { s.classList.add('carousel-hidden'); s.classList.remove('carousel-visible'); });
@@ -240,12 +324,19 @@
       function next() { index = (index + 1) % slides.length; showSlide(index); }
       function prev() { index = (index - 1 + slides.length) % slides.length; showSlide(index); }
 
-      nextBtn.addEventListener('click', next);
-      prevBtn.addEventListener('click', prev);
-      indicators.forEach((btn, i) => btn.addEventListener('click', () => { index = i; showSlide(index); }));
+      nextBtn?.addEventListener('click', () => { next(); resetInterval(); });
+      prevBtn?.addEventListener('click', () => { prev(); resetInterval(); });
+      indicators.forEach((btn, i) => btn.addEventListener('click', () => { index = i; showSlide(index); resetInterval(); }));
 
-      interval = setInterval(next, 5000);
+      function startInterval(){ interval = setInterval(next, AUTO_MS); }
+      function resetInterval(){ if(interval) clearInterval(interval); startInterval(); }
+
+      const carouselEl = document.getElementById('carousel');
+      carouselEl?.addEventListener('mouseenter', () => { if (interval) clearInterval(interval); });
+      carouselEl?.addEventListener('mouseleave', () => startInterval());
+
       showSlide(index);
+      startInterval();
     })();
   </script>
 </body>
